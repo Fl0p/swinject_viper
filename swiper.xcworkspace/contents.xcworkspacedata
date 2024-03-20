@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:deps">
+   </FileRef>
+   <FileRef
       location = "group:swiper.xcodeproj">
    </FileRef>
    <FileRef
