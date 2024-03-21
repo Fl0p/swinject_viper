@@ -10,7 +10,6 @@
 		BD8D39A0B807C81EA11E4F98 /* Pods_swiperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089722D87D858374C1A575CB /* Pods_swiperTests.framework */; };
 		D174958BAA03C4AB5B0D8EAD /* Pods_swiper_swiperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98FE1BAFD1265A8CBB94A0F /* Pods_swiper_swiperUITests.framework */; };
 		DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */; };
-		DBD38F1D2BAA23A0006BED15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1C2BAA23A0006BED15 /* SceneDelegate.swift */; };
 		DBD38F1F2BAA23A0006BED15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1E2BAA23A0006BED15 /* ViewController.swift */; };
 		DBD38F222BAA23A0006BED15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBD38F202BAA23A0006BED15 /* Main.storyboard */; };
 		DBD38F242BAA23A4006BED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD38F232BAA23A4006BED15 /* Assets.xcassets */; };
@@ -48,7 +47,6 @@
 		D98FE1BAFD1265A8CBB94A0F /* Pods_swiper_swiperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiper_swiperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD38F172BAA23A0006BED15 /* swiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBD38F1C2BAA23A0006BED15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DBD38F1E2BAA23A0006BED15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBD38F212BAA23A0006BED15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBD38F232BAA23A4006BED15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,8 +99,29 @@
 				9CFF36999674807D26AF32D6 /* Pods-swiperTests.debug.xcconfig */,
 				F38CCE2C39852A3AEEFEF906 /* Pods-swiperTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB5863922BACDE1C00198FF6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DB5863932BACDE2300198FF6 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DB5863942BACE37800198FF6 /* Loading */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		DB5863942BACE37800198FF6 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		DBD38F0E2BAA23A0006BED15 = {
@@ -130,8 +149,9 @@
 		DBD38F192BAA23A0006BED15 /* swiper */ = {
 			isa = PBXGroup;
 			children = (
+				DB5863932BACDE2300198FF6 /* Features */,
+				DB5863922BACDE1C00198FF6 /* Core */,
 				DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */,
-				DBD38F1C2BAA23A0006BED15 /* SceneDelegate.swift */,
 				DBD38F1E2BAA23A0006BED15 /* ViewController.swift */,
 				DBD38F202BAA23A0006BED15 /* Main.storyboard */,
 				DBD38F232BAA23A4006BED15 /* Assets.xcassets */,
@@ -373,7 +393,6 @@
 			files = (
 				DBD38F1F2BAA23A0006BED15 /* ViewController.swift in Sources */,
 				DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */,
-				DBD38F1D2BAA23A0006BED15 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
