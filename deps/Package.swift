@@ -17,7 +17,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/Swinject/Swinject",
-            .upToNextMinor(from: "2.8.3")
+            .upToNextMinor(from: "2.8.5")
         ),
         .package(
             url: "https://github.com/ReactiveX/RxSwift",
