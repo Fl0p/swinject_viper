@@ -15,7 +15,16 @@ struct Route: Hashable {
 
 typealias RouteHandler = (Route) -> UIViewController
 
-open class Router {
+protocol RouterProtocol {
+    var root: UINavigationController { get }
+    var own: UIViewController? { get set }
+    
+    init(root: UINavigationController)
+    func start(own: UIViewController)
+    func onStart()
+}
+
+open class RouterBase {
     
     let root: UINavigationController
     weak var own: UIViewController?
@@ -26,7 +35,12 @@ open class Router {
         self.root = root
     }
 
-    open func start() {
+    open func start(own: UIViewController) {
+        self.own =  own
+        self.onStart()
+    }
+    
+    open func onStart() {
         print("Router start")
     }
     
@@ -50,7 +64,7 @@ open class Router {
     }
     
     func navigateToMain() {
-        self.root.popToRootViewController(animated: true)
         print("Navigate to main")
+        self.root.popToRootViewController(animated: true)
     }
 }

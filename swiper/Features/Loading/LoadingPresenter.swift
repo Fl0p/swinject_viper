@@ -7,8 +7,13 @@
 
 import Foundation
 
-final class LoadingPresenter: Presenter<LoadingView, LoadingRouter, LoadingInteractor> {
+protocol LoadingPresenterProtocol {
+    
+}
+
+class LoadingPresenter: PresenterBase<LoadingViewProtocol, LoadingInteractorProtocol, LoadingRouterProtocol>, LoadingPresenterProtocol {
     override func bind() {
-        print("LoadingPresenter bind \(self.view?.bc ?? .black)")
+        let c = self.view?.bc ?? .black
+        print("LoadingPresenter bind \(c)")
     }
 }

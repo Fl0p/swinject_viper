@@ -7,7 +7,13 @@
 
 import Foundation
 
-protocol InteractorProtocol: AnyObject {
-    associatedtype P
-    var presenter: P? { get set }
+protocol InteractorProtocol {
+    associatedtype Presenter
+    var presenter: Presenter? { get set }
+}
+
+
+open class InteractorBase<P>: InteractorProtocol {
+    typealias Presenter = P
+    var presenter: Presenter?
 }

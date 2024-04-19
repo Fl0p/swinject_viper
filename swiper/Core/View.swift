@@ -8,19 +8,11 @@
 import Foundation
 import UIKit
 
-protocol ViewControllerProtocol: AnyObject {
-    associatedtype P
-    associatedtype V
-    var presenter: P { get }
-    var myView: V { get }
-    var controller: UIViewController { get }
-}
-
 protocol ViewProtocol: AnyObject {
     
 }
 
-public class View: UIView, ViewProtocol {
+public class ViewBase: UIView, ViewProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -34,19 +26,31 @@ public class View: UIView, ViewProtocol {
     }
 }
 
-class ViewController<V: View, P: PresenterProtocol>: UIViewController, ViewControllerProtocol {
 
-    var presenter: P
+protocol ViewControllerProtocol: AnyObject {
+    associatedtype Presenter: PresenterProtocol
+    associatedtype View
+    var presenter: Presenter { get }
+    var myView: Presenter.View { get }
+    var controller: UIViewController { get }
+}
 
-    var myView: P.V {
-        return view as! P.V
+class ViewController<V: ViewBase, P: PresenterProtocol>: UIViewController, ViewControllerProtocol {
+
+    typealias View = V
+    typealias Presenter = P
+    
+    var myView: P.View {
+        self.view as! P.View
     }
+    
+    var presenter: Presenter
 
     var controller: UIViewController {
         return self
     }
     
-    init(presenter: P) {
+    init(presenter: Presenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

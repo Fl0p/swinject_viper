@@ -12,13 +12,13 @@ protocol LoadingViewProtocol: ViewProtocol {
     var bc: UIColor { get }
 }
 
-final class LoadingView: View {
+final class LoadingView: ViewBase, LoadingViewProtocol {
     var bc: UIColor {
         self.backgroundColor ?? .blue
     }
     
     override func commonInit() {
-        self.backgroundColor = .blue
+        self.backgroundColor = .lightGray
     }
     
 }

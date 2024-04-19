@@ -43,7 +43,10 @@ class AppLoader {
     }
 
     private func loadApp() {
-        let loading = self.resolver.resolve(LoadingViewController.self, argument: self.navigationController)!
-        loading.presenter.router.start()
+        let loading = self.resolver.resolve(
+            LoadingViewController.self,
+            argument: self.navigationController
+        )!
+        loading.presenter.router.start(own: loading)
     }
 }

@@ -8,12 +8,20 @@
 import Foundation
 import UIKit
 
-final class LoadingRouter: Router {
+protocol LoadingRouterProtocol: RouterProtocol {
+    func kek()
+}
+
+final class LoadingRouter: RouterBase, LoadingRouterProtocol {
     
-    override func start() {
-        super.start()
+    override func onStart() {
+        super.onStart()
         guard let own else { return }
         self.root.setViewControllers([own], animated: true)
+    }
+    
+    func kek() {
+        
     }
     
 }

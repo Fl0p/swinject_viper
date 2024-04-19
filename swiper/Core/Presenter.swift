@@ -9,19 +9,32 @@ import Foundation
 import RxSwift
 
 protocol PresenterProtocol {
-    associatedtype V: View
-    func viewReady(view: V)
+    associatedtype View
+    associatedtype Interactor
+    associatedtype Router
+
+    var view:View? { set get }
+    var interactor: Interactor { get }
+    var router: Router { get }
+    
+    func viewReady(view: View)
+
 }
 
-open class Presenter<V: View,R,I>: PresenterProtocol {
+
+open class PresenterBase<V,I,R>: PresenterProtocol {
+    typealias View = V
+    typealias Interactor = I
+    typealias  Router = R
+    
     var view: V?
-    let router: R
-    let interactor: I
+    let interactor: Interactor
+    let router: Router
     let disposeBag = DisposeBag()
     
-    public init(router: R, interactor: I) {
-        self.router = router
+    init(interactor: Interactor, router: Router) {
         self.interactor = interactor
+        self.router = router
     }
     
     open func viewReady(view: V) {
