@@ -11,8 +11,21 @@
 		D174958BAA03C4AB5B0D8EAD /* Pods_swiper_swiperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98FE1BAFD1265A8CBB94A0F /* Pods_swiper_swiperUITests.framework */; };
 		DB5958D42BC88DB60048E4F0 /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958D32BC88DB60048E4F0 /* AppLoader.swift */; };
 		DB5958D62BC8939F0048E4F0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5958D52BC8939F0048E4F0 /* Launch.storyboard */; };
+		DB5958D82BD1A99F0048E4F0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958D72BD1A99F0048E4F0 /* Router.swift */; };
+		DB5958DB2BD1B9660048E4F0 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958DA2BD1B9660048E4F0 /* AppAssembler.swift */; };
+		DB5958DD2BD1BBC80048E4F0 /* OneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958DC2BD1BBC80048E4F0 /* OneAssembly.swift */; };
+		DB5958DF2BD1BF120048E4F0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958DE2BD1BF120048E4F0 /* LoadingView.swift */; };
+		DB5958E12BD1BF220048E4F0 /* LoadingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958E02BD1BF220048E4F0 /* LoadingRouter.swift */; };
+		DB5958E32BD1BF3A0048E4F0 /* LoadingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958E22BD1BF3A0048E4F0 /* LoadingPresenter.swift */; };
+		DB5958E52BD1BFB60048E4F0 /* LoadingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958E42BD1BFB60048E4F0 /* LoadingInteractor.swift */; };
+		DB5958E72BD1C1970048E4F0 /* VIPER.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958E62BD1C1970048E4F0 /* VIPER.swift */; };
+		DB5958EB2BD1C7830048E4F0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EA2BD1C7830048E4F0 /* Presenter.swift */; };
+		DB5958ED2BD1D0EF0048E4F0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EC2BD1D0EF0048E4F0 /* View.swift */; };
+		DB5958EF2BD1D9610048E4F0 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EE2BD1D9610048E4F0 /* Interactor.swift */; };
+		DB5958F22BD1DE350048E4F0 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958F12BD1DE350048E4F0 /* Swinject */; };
+		DB5958F52BD1DE5D0048E4F0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958F42BD1DE5D0048E4F0 /* RxSwift */; };
 		DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */; };
-		DBD38F1F2BAA23A0006BED15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1E2BAA23A0006BED15 /* ViewController.swift */; };
+		DBD38F1F2BAA23A0006BED15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1E2BAA23A0006BED15 /* MainViewController.swift */; };
 		DBD38F242BAA23A4006BED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD38F232BAA23A4006BED15 /* Assets.xcassets */; };
 		DBD38F322BAA23A4006BED15 /* swiperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F312BAA23A4006BED15 /* swiperTests.swift */; };
 		DBD38F3C2BAA23A4006BED15 /* swiperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F3B2BAA23A4006BED15 /* swiperUITests.swift */; };
@@ -47,9 +60,20 @@
 		D98FE1BAFD1265A8CBB94A0F /* Pods_swiper_swiperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiper_swiperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5958D32BC88DB60048E4F0 /* AppLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
 		DB5958D52BC8939F0048E4F0 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		DB5958D72BD1A99F0048E4F0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DB5958DA2BD1B9660048E4F0 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
+		DB5958DC2BD1BBC80048E4F0 /* OneAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneAssembly.swift; sourceTree = "<group>"; };
+		DB5958DE2BD1BF120048E4F0 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DB5958E02BD1BF220048E4F0 /* LoadingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingRouter.swift; sourceTree = "<group>"; };
+		DB5958E22BD1BF3A0048E4F0 /* LoadingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPresenter.swift; sourceTree = "<group>"; };
+		DB5958E42BD1BFB60048E4F0 /* LoadingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingInteractor.swift; sourceTree = "<group>"; };
+		DB5958E62BD1C1970048E4F0 /* VIPER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPER.swift; sourceTree = "<group>"; };
+		DB5958EA2BD1C7830048E4F0 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		DB5958EC2BD1D0EF0048E4F0 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DB5958EE2BD1D9610048E4F0 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		DBD38F172BAA23A0006BED15 /* swiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBD38F1E2BAA23A0006BED15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DBD38F1E2BAA23A0006BED15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DBD38F232BAA23A4006BED15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBD38F282BAA23A4006BED15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBD38F2D2BAA23A4006BED15 /* swiperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5958F52BD1DE5D0048E4F0 /* RxSwift in Frameworks */,
 				DCA7A33479168FF79E3DE28D /* Pods_swiper.framework in Frameworks */,
+				DB5958F22BD1DE350048E4F0 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +131,11 @@
 		DB5863922BACDE1C00198FF6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DB5958D72BD1A99F0048E4F0 /* Router.swift */,
+				DB5958E62BD1C1970048E4F0 /* VIPER.swift */,
+				DB5958EA2BD1C7830048E4F0 /* Presenter.swift */,
+				DB5958EC2BD1D0EF0048E4F0 /* View.swift */,
+				DB5958EE2BD1D9610048E4F0 /* Interactor.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -120,8 +151,21 @@
 		DB5863942BACE37800198FF6 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
+				DB5958DE2BD1BF120048E4F0 /* LoadingView.swift */,
+				DB5958E02BD1BF220048E4F0 /* LoadingRouter.swift */,
+				DB5958E22BD1BF3A0048E4F0 /* LoadingPresenter.swift */,
+				DB5958E42BD1BFB60048E4F0 /* LoadingInteractor.swift */,
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		DB5958D92BD1B8BE0048E4F0 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				DB5958DA2BD1B9660048E4F0 /* AppAssembler.swift */,
+				DB5958DC2BD1BBC80048E4F0 /* OneAssembly.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		DBD38F0E2BAA23A0006BED15 = {
@@ -149,11 +193,12 @@
 		DBD38F192BAA23A0006BED15 /* swiper */ = {
 			isa = PBXGroup;
 			children = (
+				DB5958D92BD1B8BE0048E4F0 /* DI */,
 				DB5863932BACDE2300198FF6 /* Features */,
 				DB5863922BACDE1C00198FF6 /* Core */,
 				DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */,
 				DB5958D32BC88DB60048E4F0 /* AppLoader.swift */,
-				DBD38F1E2BAA23A0006BED15 /* ViewController.swift */,
+				DBD38F1E2BAA23A0006BED15 /* MainViewController.swift */,
 				DB5958D52BC8939F0048E4F0 /* Launch.storyboard */,
 				DBD38F232BAA23A4006BED15 /* Assets.xcassets */,
 				DBD38F282BAA23A4006BED15 /* Info.plist */,
@@ -205,6 +250,10 @@
 			dependencies = (
 			);
 			name = swiper;
+			packageProductDependencies = (
+				DB5958F12BD1DE350048E4F0 /* Swinject */,
+				DB5958F42BD1DE5D0048E4F0 /* RxSwift */,
+			);
 			productName = swiper;
 			productReference = DBD38F172BAA23A0006BED15 /* swiper.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +328,10 @@
 				Base,
 			);
 			mainGroup = DBD38F0E2BAA23A0006BED15;
+			packageReferences = (
+				DB5958F02BD1DE350048E4F0 /* XCRemoteSwiftPackageReference "Swinject" */,
+				DB5958F32BD1DE5D0048E4F0 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = DBD38F182BAA23A0006BED15 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -390,9 +443,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5958ED2BD1D0EF0048E4F0 /* View.swift in Sources */,
+				DB5958D82BD1A99F0048E4F0 /* Router.swift in Sources */,
+				DB5958E52BD1BFB60048E4F0 /* LoadingInteractor.swift in Sources */,
 				DB5958D42BC88DB60048E4F0 /* AppLoader.swift in Sources */,
-				DBD38F1F2BAA23A0006BED15 /* ViewController.swift in Sources */,
+				DBD38F1F2BAA23A0006BED15 /* MainViewController.swift in Sources */,
+				DB5958DB2BD1B9660048E4F0 /* AppAssembler.swift in Sources */,
+				DB5958DD2BD1BBC80048E4F0 /* OneAssembly.swift in Sources */,
+				DB5958EB2BD1C7830048E4F0 /* Presenter.swift in Sources */,
+				DB5958E12BD1BF220048E4F0 /* LoadingRouter.swift in Sources */,
+				DB5958DF2BD1BF120048E4F0 /* LoadingView.swift in Sources */,
+				DB5958E72BD1C1970048E4F0 /* VIPER.swift in Sources */,
 				DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */,
+				DB5958EF2BD1D9610048E4F0 /* Interactor.swift in Sources */,
+				DB5958E32BD1BF3A0048E4F0 /* LoadingPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +784,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB5958F02BD1DE350048E4F0 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.6;
+			};
+		};
+		DB5958F32BD1DE5D0048E4F0 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB5958F12BD1DE350048E4F0 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB5958F02BD1DE350048E4F0 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		DB5958F42BD1DE5D0048E4F0 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB5958F32BD1DE5D0048E4F0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DBD38F0F2BAA23A0006BED15 /* Project object */;
 }
