@@ -12,7 +12,13 @@ protocol LoadingRouterProtocol: RouterProtocol {
     func kek()
 }
 
-final class LoadingRouter: RouterBase, LoadingRouterProtocol {
+enum LoadingRoute: Route {
+    case kek
+    case lol(String)
+    case aza(Int)
+}
+
+final class LoadingRouter: RouterBase<UINavigationController>, LoadingRouterProtocol {
     
     override func onStart() {
         super.onStart()
@@ -21,7 +27,9 @@ final class LoadingRouter: RouterBase, LoadingRouterProtocol {
     }
     
     func kek() {
-        
+        let route = LoadingRoute.kek
+        let vc = self.route(route)
+        self.root.pushViewController(vc, animated: true)
     }
     
 }

@@ -8,30 +8,29 @@
 import Foundation
 import UIKit
 
-struct Route: Hashable {
-    let path: String
-    let title: String
+public protocol Route: Hashable {
+    
 }
 
-typealias RouteHandler = (Route) -> UIViewController
 
-protocol RouterProtocol {
-    var root: UINavigationController { get }
+public protocol RouterProtocol {
+    associatedtype RootViewController
+    var root: RootViewController { get }
     var own: UIViewController? { get set }
     
-    init(root: UINavigationController)
+    init(root: RootViewController)
     func start(own: UIViewController)
     func onStart()
 }
 
-open class RouterBase {
+open class RouterBase<C>: RouterProtocol {
+    public typealias RootViewController = C
+    public let root: RootViewController
+    weak public var own: UIViewController?
     
-    let root: UINavigationController
-    weak var own: UIViewController?
+    var routes:[ObjectIdentifier: (any Route) -> UIViewController] = [:]
     
-    var routes:[Route:RouteHandler] = [:]
-    
-    init(root: UINavigationController) {
+    required public init(root: RootViewController) {
         self.root = root
     }
 
@@ -44,27 +43,23 @@ open class RouterBase {
         print("Router start")
     }
     
-    func getViewControllerForRoute(route: Route) -> UIViewController? {
-        
-        guard let handler = self.routes[route] else {
-            return nil
+    func addRoute<R: Route>(_ routeType: R.Type, handler: @escaping (any Route) -> UIViewController) {
+        routes[ObjectIdentifier(routeType)] = { route in
+            if let specificRoute = route as? R {
+                return handler(specificRoute)
+            } else {
+                fatalError("Unexpected route: \(route)")
+            }
         }
-
-        return handler(route)
+    }
+       
+    func route(_ route: any Route) -> UIViewController {
+        let identifier = ObjectIdentifier(type(of: route))
+        if let handler = routes[identifier] {
+            return handler(route)
+        } else {
+            fatalError("Unsupported route: \(route)")
+        }
     }
     
-    func navigateToText(text:String) {
-        let route = Route(path: "text", title: text)
-
-        guard let vc = self.getViewControllerForRoute(route: route) else {
-            return
-        }
-        vc.title = text
-        self.root.pushViewController(vc, animated: true)
-    }
-    
-    func navigateToMain() {
-        print("Navigate to main")
-        self.root.popToRootViewController(animated: true)
-    }
 }

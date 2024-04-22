@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol LoadingViewProtocol: ViewProtocol {
+protocol LoadingViewProtocol: AnyObject {
     var bc: UIColor { get }
 }
 

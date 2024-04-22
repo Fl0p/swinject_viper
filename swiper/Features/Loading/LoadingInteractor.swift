@@ -11,10 +11,14 @@ protocol LoadingInteractorProtocol: InteractorProtocol {
     func lol()
 }
 
-final class LoadingInteractor: InteractorBase<LoadingPresenterProtocol>, LoadingInteractorProtocol {
+final class LoadingInteractor: InteractorBase, LoadingInteractorProtocol {
 
     func lol() {
-        guard let p = self.presenter else { return }
-        print("Pres \(p)")
+        print("LoadingInteractor lol")
+//        guard let p = self.presenter else { return }
+//        print("Presenter \(p)")
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            self.presenter?.kek()
+//        }
     }
 }

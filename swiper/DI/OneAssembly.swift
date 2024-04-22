@@ -15,6 +15,11 @@ final class OneAssembly: Assembly {
         container.register(LoadingViewController.self) { r, nav in
             let n: UINavigationController = nav
             let router = LoadingRouter(root: n)
+            router.addRoute(LoadingRoute.self) { route in
+                print("Unexpected route type: \(route)")
+                return UIViewController()
+            }
+
             let interactor = LoadingInteractor()
             let presenter = LoadingPresenter(interactor: interactor, router: router)
             let viewController = LoadingViewController(presenter: presenter)
