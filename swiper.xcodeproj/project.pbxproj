@@ -22,8 +22,7 @@
 		DB5958EB2BD1C7830048E4F0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EA2BD1C7830048E4F0 /* Presenter.swift */; };
 		DB5958ED2BD1D0EF0048E4F0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EC2BD1D0EF0048E4F0 /* View.swift */; };
 		DB5958EF2BD1D9610048E4F0 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EE2BD1D9610048E4F0 /* Interactor.swift */; };
-		DB5958F22BD1DE350048E4F0 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958F12BD1DE350048E4F0 /* Swinject */; };
-		DB5958F52BD1DE5D0048E4F0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958F42BD1DE5D0048E4F0 /* RxSwift */; };
+		DB5958F72BD7C7630048E4F0 /* deps in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958F62BD7C7630048E4F0 /* deps */; };
 		DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */; };
 		DBD38F1F2BAA23A0006BED15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1E2BAA23A0006BED15 /* MainViewController.swift */; };
 		DBD38F242BAA23A4006BED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD38F232BAA23A4006BED15 /* Assets.xcassets */; };
@@ -90,9 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB5958F52BD1DE5D0048E4F0 /* RxSwift in Frameworks */,
+				DB5958F72BD7C7630048E4F0 /* deps in Frameworks */,
 				DCA7A33479168FF79E3DE28D /* Pods_swiper.framework in Frameworks */,
-				DB5958F22BD1DE350048E4F0 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +249,7 @@
 			);
 			name = swiper;
 			packageProductDependencies = (
-				DB5958F12BD1DE350048E4F0 /* Swinject */,
-				DB5958F42BD1DE5D0048E4F0 /* RxSwift */,
+				DB5958F62BD7C7630048E4F0 /* deps */,
 			);
 			productName = swiper;
 			productReference = DBD38F172BAA23A0006BED15 /* swiper.app */;
@@ -805,15 +802,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DB5958F12BD1DE350048E4F0 /* Swinject */ = {
+		DB5958F62BD7C7630048E4F0 /* deps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DB5958F02BD1DE350048E4F0 /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-		DB5958F42BD1DE5D0048E4F0 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DB5958F32BD1DE5D0048E4F0 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
+			productName = deps;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

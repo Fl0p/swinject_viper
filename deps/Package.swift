@@ -12,6 +12,10 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            url:  "https://github.com/freshOS/Stevia",
+            .upToNextMinor(from: "5.1.4")
+        ),
+        .package(
             url: "https://github.com/sunshinejr/SwiftyUserDefaults",
             .upToNextMinor(from: "5.3.0")
         ),
@@ -28,6 +32,7 @@ let package = Package(
         .target(
             name: "deps",
             dependencies: [
+                "Stevia",
                 "SwiftyUserDefaults",
                 "Swinject",
                 "RxSwift"
