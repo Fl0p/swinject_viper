@@ -47,6 +47,6 @@ class AppLoader {
             LoadingViewController.self,
             argument: self.navigationController
         )!
-        //loading.presenter.router.start(own: loading)
+        //loading.start()
     }
 }

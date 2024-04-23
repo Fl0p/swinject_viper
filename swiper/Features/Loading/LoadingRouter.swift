@@ -20,10 +20,9 @@ enum LoadingRoute: Route {
 
 final class LoadingRouter: RouterBase<UINavigationController>, LoadingRouterProtocol {
     
-    override func onStart() {
-        super.onStart()
-        guard let own else { return }
-        self.root.setViewControllers([own], animated: true)
+    override func onStart(ownVC: UIViewController) {
+        super.onStart(ownVC: ownVC)
+        self.root.setViewControllers([ownVC], animated: true)
     }
     
     func kek() {

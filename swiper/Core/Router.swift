@@ -16,17 +16,14 @@ public protocol Route: Hashable {
 public protocol RouterProtocol {
     associatedtype RootViewController
     var root: RootViewController { get }
-    var own: UIViewController? { get set }
     
     init(root: RootViewController)
-    func start(own: UIViewController)
-    func onStart()
+    func onStart(ownVC: UIViewController)
 }
 
 open class RouterBase<C>: RouterProtocol {
     public typealias RootViewController = C
     public let root: RootViewController
-    weak public var own: UIViewController?
     
     var routes:[ObjectIdentifier: (any Route) -> UIViewController] = [:]
     
@@ -34,13 +31,8 @@ open class RouterBase<C>: RouterProtocol {
         self.root = root
     }
 
-    open func start(own: UIViewController) {
-        self.own =  own
-        self.onStart()
-    }
-    
-    open func onStart() {
-        print("Router start")
+    open func onStart(ownVC: UIViewController) {
+        print("Router start: \(ownVC)")
     }
     
     func addRoute<R: Route>(_ routeType: R.Type, handler: @escaping (any Route) -> UIViewController) {

@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-public class ViewBase: UIView {
+protocol ViewProtocol: UIView {
+    
+}
+
+public class ViewBase: UIView, ViewProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -23,25 +27,28 @@ public class ViewBase: UIView {
 }
 
 
-protocol ViewControllerProtocol: AnyObject {
+protocol ViewControllerProtocol: UIViewController {
     associatedtype Presenter: AnyPresenterProtocol
-    associatedtype View
+    associatedtype View: ViewProtocol
     var presenter: Presenter { get }
-    var myView: Presenter.View { get }
+    var myView: View { get }
     var controller: UIViewController { get }
+    func start()
 }
 
-class ViewController<V: ViewBase, P: AnyPresenterProtocol>: UIViewController, ViewControllerProtocol {
+class ViewController<V: ViewProtocol, P: AnyPresenterProtocol>: UIViewController, ViewControllerProtocol
+where V == P.View, V: ViewProtocol
+{
 
     typealias View = V
     typealias Presenter = P
     
-    var myView: P.View {
-        self.view as! P.View
+    var myView: View {
+        self.view as! View
     }
     
     var presenter: Presenter
-
+    
     var controller: UIViewController {
         return self
     }
@@ -49,6 +56,7 @@ class ViewController<V: ViewBase, P: AnyPresenterProtocol>: UIViewController, Vi
     init(presenter: Presenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+
     }
     
     required init?(coder: NSCoder) {
@@ -63,5 +71,8 @@ class ViewController<V: ViewBase, P: AnyPresenterProtocol>: UIViewController, Vi
         super.viewDidLoad()
         self.presenter.viewReady(view: self.myView)
     }
-    
+ 
+    func start() {
+        self.presenter.router.onStart(ownVC: self)
+    }
 }

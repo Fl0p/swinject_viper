@@ -13,8 +13,7 @@ final class OneAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(LoadingViewController.self) { r, nav in
-            let n: UINavigationController = nav
-            let router = LoadingRouter(root: n)
+            let router = LoadingRouter(root: nav)
             router.addRoute(LoadingRoute.self) { route in
                 print("Unexpected route type: \(route)")
                 return UIViewController()
