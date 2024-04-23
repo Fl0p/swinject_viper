@@ -17,7 +17,16 @@ final class OneAssembly: Assembly {
             router.addRoute(LoadingRoute.self) { route in
                 print("Route type: \(route)")
                 let vc = UIViewController()
-                vc.view.backgroundColor = .red
+                switch route {
+                case .kek:
+                    vc.view.backgroundColor = .red
+                case .lol(let str):
+                    vc.view.backgroundColor = .blue
+                    vc.title = str
+                case .aza(_):
+                    print("nothing here`")
+                }
+                
                 return vc
             }
 

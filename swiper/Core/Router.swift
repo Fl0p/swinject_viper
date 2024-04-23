@@ -35,7 +35,7 @@ open class RouterBase<C>: RouterProtocol {
         print("Router start: \(ownVC)")
     }
     
-    func addRoute<R: Route>(_ routeType: R.Type, handler: @escaping (any Route) -> UIViewController) {
+    func addRoute<R: Route>(_ routeType: R.Type, handler: @escaping (R) -> UIViewController) {
         routes[ObjectIdentifier(routeType)] = { route in
             if let specificRoute = route as? R {
                 return handler(specificRoute)

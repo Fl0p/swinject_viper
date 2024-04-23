@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoadingRouterProtocol: RouterProtocol {
     func kek()
+    func lol(_ str: String)
 }
 
 enum LoadingRoute: Route {
@@ -27,6 +28,12 @@ final class LoadingRouter: RouterBase<UINavigationController>, LoadingRouterProt
     
     func kek() {
         let route = LoadingRoute.kek
+        let vc = self.route(route)
+        self.root.pushViewController(vc, animated: true)
+    }
+    
+    func lol(_ str: String) {
+        let route = LoadingRoute.lol(str)
         let vc = self.route(route)
         self.root.pushViewController(vc, animated: true)
     }

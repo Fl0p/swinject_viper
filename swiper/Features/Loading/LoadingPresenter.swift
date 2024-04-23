@@ -16,10 +16,12 @@ class LoadingPresenter: PresenterBase<LoadingView, LoadingInteractorProtocol, Lo
         
         interactor.lolEventTrigger.subscribe(onNext: { [weak self] in
             print("LoadingInteractor lol")
+            self?.router.lol("lol")
         }).disposed(by: self.disposeBag)
 
         interactor.kekEventTrigger.subscribe(onNext: { [weak self] in
             print("LoadingInteractor kek")
+            self?.router.kek()
         }).disposed(by: self.disposeBag)
 
         
