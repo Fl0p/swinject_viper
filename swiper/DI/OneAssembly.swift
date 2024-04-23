@@ -15,7 +15,7 @@ final class OneAssembly: Assembly {
         container.register(LoadingViewController.self) { r, nav in
             let router = LoadingRouter(root: nav)
             router.addRoute(LoadingRoute.self) { route in
-                print("Going route type: \(route)")
+                print("Route type: \(route)")
                 let vc = UIViewController()
                 vc.view.backgroundColor = .red
                 return vc

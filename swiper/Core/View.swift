@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 protocol ViewProtocol: UIView {
-    
+    func applyStyle()
+    func applyLayout()
 }
 
 public class ViewBase: UIView, ViewProtocol {
@@ -22,6 +23,13 @@ public class ViewBase: UIView, ViewProtocol {
         commonInit()
     }
     open func commonInit() {
+        self.applyStyle()
+        self.applyLayout()
+    }
+    open func applyStyle() {
+        
+    }
+    open func applyLayout() {
         
     }
 }

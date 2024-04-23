@@ -10,19 +10,27 @@ import RxSwift
 
 protocol LoadingInteractorProtocol: InteractorProtocol {
     func lol()
-    var lolEventTrigger: PublishSubject<Void>? { get }
+    func kek()
+    
+    var lolEventTrigger: PublishSubject<Void> { get }
+    var kekEventTrigger: PublishSubject<Void> { get }
 }
 
 final class LoadingInteractor: InteractorBase, LoadingInteractorProtocol {
     
-    var lolEventTrigger: PublishSubject<Void>? = {
-        return PublishSubject<Void>()
-    }()
-    
+    let lolEventTrigger = PublishSubject<Void>()
+    let kekEventTrigger = PublishSubject<Void>()
+
     func lol() {
-        print("LoadingInteractor lol")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.lolEventTrigger?.onNext(())
+            self.lolEventTrigger.onNext(())
         }
     }
+    func kek() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.kekEventTrigger.onNext(())
+        }
+    }
+    
+
 }

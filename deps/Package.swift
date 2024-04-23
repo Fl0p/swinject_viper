@@ -35,7 +35,8 @@ let package = Package(
                 "Stevia",
                 "SwiftyUserDefaults",
                 "Swinject",
-                "RxSwift"
+                .product(name: "RxSwift", package: "RxSwift"),
+                .product(name: "RxCocoa", package: "RxSwift")
             ]
         ),
         .testTarget(

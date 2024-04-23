@@ -22,7 +22,8 @@
 		DB5958EB2BD1C7830048E4F0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EA2BD1C7830048E4F0 /* Presenter.swift */; };
 		DB5958ED2BD1D0EF0048E4F0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EC2BD1D0EF0048E4F0 /* View.swift */; };
 		DB5958EF2BD1D9610048E4F0 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EE2BD1D9610048E4F0 /* Interactor.swift */; };
-		DB5958F72BD7C7630048E4F0 /* deps in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958F62BD7C7630048E4F0 /* deps */; };
+		DB5958FA2BD7C8380048E4F0 /* SomeStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958F92BD7C8380048E4F0 /* SomeStyles.swift */; };
+		DB5958FC2BD7D75D0048E4F0 /* deps in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958FB2BD7D75D0048E4F0 /* deps */; };
 		DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */; };
 		DBD38F1F2BAA23A0006BED15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1E2BAA23A0006BED15 /* MainViewController.swift */; };
 		DBD38F242BAA23A4006BED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD38F232BAA23A4006BED15 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		DB5958EA2BD1C7830048E4F0 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		DB5958EC2BD1D0EF0048E4F0 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DB5958EE2BD1D9610048E4F0 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		DB5958F92BD7C8380048E4F0 /* SomeStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeStyles.swift; sourceTree = "<group>"; };
 		DBD38F172BAA23A0006BED15 /* swiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD38F1E2BAA23A0006BED15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB5958F72BD7C7630048E4F0 /* deps in Frameworks */,
+				DB5958FC2BD7D75D0048E4F0 /* deps in Frameworks */,
 				DCA7A33479168FF79E3DE28D /* Pods_swiper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +168,14 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		DB5958F82BD7C8200048E4F0 /* UIStyles */ = {
+			isa = PBXGroup;
+			children = (
+				DB5958F92BD7C8380048E4F0 /* SomeStyles.swift */,
+			);
+			path = UIStyles;
+			sourceTree = "<group>";
+		};
 		DBD38F0E2BAA23A0006BED15 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +201,7 @@
 		DBD38F192BAA23A0006BED15 /* swiper */ = {
 			isa = PBXGroup;
 			children = (
+				DB5958F82BD7C8200048E4F0 /* UIStyles */,
 				DB5958D92BD1B8BE0048E4F0 /* DI */,
 				DB5863932BACDE2300198FF6 /* Features */,
 				DB5863922BACDE1C00198FF6 /* Core */,
@@ -249,7 +260,7 @@
 			);
 			name = swiper;
 			packageProductDependencies = (
-				DB5958F62BD7C7630048E4F0 /* deps */,
+				DB5958FB2BD7D75D0048E4F0 /* deps */,
 			);
 			productName = swiper;
 			productReference = DBD38F172BAA23A0006BED15 /* swiper.app */;
@@ -451,6 +462,7 @@
 				DB5958E12BD1BF220048E4F0 /* LoadingRouter.swift in Sources */,
 				DB5958DF2BD1BF120048E4F0 /* LoadingView.swift in Sources */,
 				DB5958E72BD1C1970048E4F0 /* VIPER.swift in Sources */,
+				DB5958FA2BD7C8380048E4F0 /* SomeStyles.swift in Sources */,
 				DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */,
 				DB5958EF2BD1D9610048E4F0 /* Interactor.swift in Sources */,
 				DB5958E32BD1BF3A0048E4F0 /* LoadingPresenter.swift in Sources */,
@@ -802,7 +814,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DB5958F62BD7C7630048E4F0 /* deps */ = {
+		DB5958FB2BD7D75D0048E4F0 /* deps */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = deps;
 		};

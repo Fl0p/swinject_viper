@@ -10,26 +10,44 @@ import UIKit
 import Stevia
 
 protocol LoadingViewProtocol: ViewProtocol {
-    var btn: UIButton { get }
+    var lolBtn: UIButton { get }
+    var kekBtn: UIButton { get }
     var bc: UIColor { get }
 }
 
 final class LoadingView: ViewBase, LoadingViewProtocol {
     
-    let btn: UIButton = UIButton()
+    let lolBtn: UIButton = UIButton()
+    let kekBtn: UIButton = UIButton()
+    let square: UIView = UIView()
     
     var bc: UIColor {
         self.backgroundColor ?? .blue
     }
     
-    override func commonInit() {
-        self.backgroundColor = .lightGray
-        
-        subviews {
-            btn
-        }
+    override func applyStyle() {
+        self.styleBgLightGray()
+        square.styleBgGray()
+        lolBtn.styleLol()
+        kekBtn.styleKek()
     }
     
+    override func applyLayout() {
+        self.subviews {
+            square
+            lolBtn
+            kekBtn
+        }
+        square.Top == self.safeAreaLayoutGuide.Top + 20
+        layout {
+            |-square-| ~ 50
+            10
+            |-lolBtn-| ~ 50
+            10
+            |-kekBtn-| ~ 50
+            >=80
+        }
+    }
 }
 
 final class LoadingViewController: ViewController<LoadingView, LoadingPresenter> {
