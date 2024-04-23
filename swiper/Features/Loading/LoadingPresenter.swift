@@ -12,6 +12,11 @@ class LoadingPresenter: PresenterBase<LoadingView, LoadingInteractorProtocol, Lo
     override func bind() {
         let c = self.view?.bc ?? .black
         print("LoadingPresenter bind \(c)")
+        
+        interactor.lolEventTrigger?.subscribe(onNext: { [weak self] in
+            self?.kek()
+        }).disposed(by: self.disposeBag)
+        
         self.interactor.lol()
     }
     

@@ -6,19 +6,23 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol LoadingInteractorProtocol: InteractorProtocol {
     func lol()
+    var lolEventTrigger: PublishSubject<Void>? { get }
 }
 
 final class LoadingInteractor: InteractorBase, LoadingInteractorProtocol {
-
+    
+    var lolEventTrigger: PublishSubject<Void>? = {
+        return PublishSubject<Void>()
+    }()
+    
     func lol() {
         print("LoadingInteractor lol")
-//        guard let p = self.presenter else { return }
-//        print("Presenter \(p)")
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.presenter?.kek()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.lolEventTrigger?.onNext(())
+        }
     }
 }
