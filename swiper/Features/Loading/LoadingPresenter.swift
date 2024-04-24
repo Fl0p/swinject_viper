@@ -14,8 +14,19 @@ class LoadingPresenter: VIPERPresenter<LoadingView, LoadingInteractor, LoadingRo
         print("LoadingPresenter bind")
         interactor.loadedTrigger.subscribe(onNext: { [weak self] in
             print("LoadingInteractor loaded")
-            self?.router.loaded(4)
+            guard let self = self else { return }
+            let num = self.interactor.num
+            self.router.loaded(num)
         }).disposed(by: self.disposeBag)
+        
+        guard let view = self.view else { return }
+        interactor.string.asObservable()
+            .bind(to: view.lbl.rx.text)
+            .disposed(by: self.disposeBag)
+        
+        interactor.loading.asObservable()
+            .bind(to: view.act.rx.isAnimating)
+            .disposed(by: self.disposeBag)
     }
     
     func kek() {

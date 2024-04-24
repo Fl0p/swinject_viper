@@ -12,27 +12,31 @@ import UIKit
 final class OneAssembly: Assembly {
     func assemble(container: Container) {
         
-        container.register(LoadingViewController.self) { r, nav in
-            let router = LoadingRouter(root: nav)
+        container.register(LoadingRouter.self) { r, root in
+            let rnc: UINavigationController = root
+            let router = LoadingRouter(root: rnc)
             router.addRoute(LoadingRoute.self) { route in
-                print("Route type: \(route)")
-                let vc = UIViewController()
+                let vc = r.resolve(MainViewController.self, argument: root)!
                 switch route {
                 case .loaded(let int):
-                    vc.view.backgroundColor = .red
+                    vc.presenter.interactor.acceptInitialData(int)
                 }
-                
                 return vc
             }
-
+            return router
+        }
+        container.register(LoadingViewController.self) { r, root in
+            let rnc: UINavigationController = root
+            let router = r.resolve(LoadingRouter.self, argument: rnc)!
             let interactor = LoadingInteractor()
             let presenter = LoadingPresenter(interactor: interactor, router: router)
             let viewController = LoadingViewController(presenter: presenter)
             return viewController
         }
         
-        container.register(MainViewController.self) { r, nav in
-            let router = MainRouter(root: nav)
+        container.register(MainRouter.self) { r, root in
+            let rnc: UINavigationController = root
+            let router = MainRouter(root: rnc)
             router.addRoute(MainRoute.self) { route in
                 print("Route type: \(route)")
                 let vc = UIViewController()
@@ -48,7 +52,12 @@ final class OneAssembly: Assembly {
                 
                 return vc
             }
-
+            return router
+        }
+        
+        container.register(MainViewController.self) { r, root in
+            let rnc: UINavigationController = root
+            let router = r.resolve(MainRouter.self, argument: rnc)!
             let interactor = MainInteractor()
             let presenter = MainPresenter(interactor: interactor, router: router)
             let viewController = MainViewController(presenter: presenter)

@@ -9,6 +9,9 @@ import Foundation
 import RxSwift
 
 protocol MainInteractorProtocol: InteractorProtocol {
+    
+    func acceptInitialData(_ data: Int)
+    
     func lol()
     func kek()
     
@@ -17,6 +20,10 @@ protocol MainInteractorProtocol: InteractorProtocol {
 }
 
 final class MainInteractor: VIPERInteractor, MainInteractorProtocol {
+    
+    func acceptInitialData(_ data: Int) {
+        print("MainInteractor acceptInitialData \(data)")
+    }
     
     let lolEventTrigger = PublishSubject<Void>()
     let kekEventTrigger = PublishSubject<Void>()

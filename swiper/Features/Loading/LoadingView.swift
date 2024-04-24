@@ -10,7 +10,6 @@ import UIKit
 import Stevia
 
 protocol LoadingViewProtocol: ViewProtocol {
-    var square: UIView { get }
     var lbl: UILabel { get }
     var act: UIActivityIndicatorView { get }
 
@@ -18,36 +17,25 @@ protocol LoadingViewProtocol: ViewProtocol {
 
 final class LoadingView: VIPERView, LoadingViewProtocol {
     
-    let square: UIView = UIView()
     let lbl: UILabel = UILabel()
     let act: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     
     
-    var bc: UIColor {
-        self.backgroundColor ?? .blue
-    }
-    
     override func applyStyle() {
         self.styleBgLightGray()
-        square.styleBgGray()
-        lbl.text = "Loading..."
-        lbl.textColor = .black
+        lbl.styleLbl()
     }
     
     override func applyLayout() {
         self.subviews {
-            square
             lbl
             act
         }
         act.centerInContainer()
         
-        square.Top == self.safeAreaLayoutGuide.Top + 20
+        lbl.Top == self.safeAreaLayoutGuide.Top + 20
         layout {
-            |-square-| ~ 50
-            10
             |-lbl-| ~ 50
-            >=80
         }
     }
 }

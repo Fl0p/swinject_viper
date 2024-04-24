@@ -26,7 +26,11 @@ final class LoadingRouter: VIPERRouter<UINavigationController>, LoadingRouterPro
     func loaded(_ num: Int) {
         let route = LoadingRoute.loaded(num)
         let vc = self.route(route)
-        self.root.setViewControllers([vc], animated: true)
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.fade
+        self.root.view.layer.add(transition, forKey: kCATransition)
+        self.root.setViewControllers([vc], animated: false)
     }
     
 }

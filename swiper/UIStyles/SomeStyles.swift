@@ -35,3 +35,9 @@ extension UIButton {
     }
 }
 
+extension UILabel {
+    func styleLbl() {
+        self.backgroundColor = .white
+        self.textColor = .darkText
+    }
+}
