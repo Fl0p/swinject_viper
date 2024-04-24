@@ -11,8 +11,7 @@ import RxCocoa
 
 class MainPresenter: VIPERPresenter<MainView, MainInteractor, MainRouter> {
     override func bind() {
-        let c = self.view?.bc ?? .black
-        print("MainPresenter bind \(c)")
+        print("MainPresenter bind \(self)")
         
         interactor.lolEventTrigger.subscribe(onNext: { [weak self] in
             print("MainPresenter lol")
@@ -24,17 +23,16 @@ class MainPresenter: VIPERPresenter<MainView, MainInteractor, MainRouter> {
             self?.router.kek()
         }).disposed(by: self.disposeBag)
 
-        
-        self.view?.lolBtn.rx.tap
+        guard let view = self.view else { return }
+        view.lolBtn.rx.tap
         .subscribe(onNext: { [weak self] in
             self?.interactor.lol()
         }).disposed(by: self.disposeBag)
         
-        self.view?.kekBtn.rx.tap
+        view.kekBtn.rx.tap
         .subscribe(onNext: { [weak self] in
             self?.interactor.kek()
         }).disposed(by: self.disposeBag)
-
         
     }
     
