@@ -18,19 +18,19 @@ enum LoadingRoute: Route {
 
 final class LoadingRouter: VIPERRouter<UINavigationController>, LoadingRouterProtocol {
     
-    override func onStart(ownVC: UIViewController) {
-        super.onStart(ownVC: ownVC)
-        self.root.setViewControllers([ownVC], animated: true)
+    override func onStart(root: RootViewController, own: UIViewController) {
+        super.onStart(root: root, own: own)
+        root.setViewControllers([own], animated: true)
     }
     
     func loaded(_ num: Int) {
         let route = LoadingRoute.loaded(num)
-        let vc = self.route(route)
+        let vc = self.handleRoute(route)
         let transition = CATransition()
         transition.duration = 0.3
         transition.type = CATransitionType.fade
-        self.root.view.layer.add(transition, forKey: kCATransition)
-        self.root.setViewControllers([vc], animated: false)
+        self.root?.view.layer.add(transition, forKey: kCATransition)
+        self.root?.setViewControllers([vc], animated: false)
     }
     
 }

@@ -12,11 +12,10 @@ import UIKit
 final class OneAssembly: Assembly {
     func assemble(container: Container) {
         
-        container.register(LoadingRouter.self) { r, root in
-            let rnc: UINavigationController = root
-            let router = LoadingRouter(root: rnc)
+        container.register(LoadingRouter.self) { r in
+            let router = LoadingRouter()
             router.addRoute(LoadingRoute.self) { route in
-                let vc = r.resolve(MainViewController.self, argument: root)!
+                let vc = r.resolve(MainViewController.self)!
                 switch route {
                 case .loaded(let int):
                     vc.presenter.interactor.acceptInitialData(int)
@@ -25,18 +24,16 @@ final class OneAssembly: Assembly {
             }
             return router
         }
-        container.register(LoadingViewController.self) { r, root in
-            let rnc: UINavigationController = root
-            let router = r.resolve(LoadingRouter.self, argument: rnc)!
+        container.register(LoadingViewController.self) { r in
+            let router = r.resolve(LoadingRouter.self)!
             let interactor = LoadingInteractor()
             let presenter = LoadingPresenter(interactor: interactor, router: router)
             let viewController = LoadingViewController(presenter: presenter)
             return viewController
         }
         
-        container.register(MainRouter.self) { r, root in
-            let rnc: UINavigationController = root
-            let router = MainRouter(root: rnc)
+        container.register(MainRouter.self) { r in
+            let router = MainRouter()
             router.addRoute(MainRoute.self) { route in
                 print("Route type: \(route)")
                 let vc = UIViewController()
@@ -55,9 +52,8 @@ final class OneAssembly: Assembly {
             return router
         }
         
-        container.register(MainViewController.self) { r, root in
-            let rnc: UINavigationController = root
-            let router = r.resolve(MainRouter.self, argument: rnc)!
+        container.register(MainViewController.self) { r in
+            let router = r.resolve(MainRouter.self)!
             let interactor = MainInteractor()
             let presenter = MainPresenter(interactor: interactor, router: router)
             let viewController = MainViewController(presenter: presenter)

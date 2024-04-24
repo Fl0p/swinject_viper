@@ -14,25 +14,26 @@ public protocol Route: Hashable {
 
 
 public protocol RouterProtocol {
-    associatedtype RootViewController
-    var root: RootViewController { get }
-    
-    init(root: RootViewController)
-    func onStart(ownVC: UIViewController)
+    associatedtype RootViewController: UIViewController
+    var root: RootViewController? { get }
+    var own: UIViewController? { get }
+    init()
+    func onStart(root: RootViewController, own: UIViewController)
 }
 
-open class VIPERRouter<C>: RouterProtocol {
+open class VIPERRouter<C>: RouterProtocol where C: UIViewController {
     public typealias RootViewController = C
-    public let root: RootViewController
+    public weak var root: RootViewController?
+    public weak var own: UIViewController?
     
     var routes:[ObjectIdentifier: (any Route) -> UIViewController] = [:]
     
-    required public init(root: RootViewController) {
-        self.root = root
+    required public init() {
+        
     }
 
-    open func onStart(ownVC: UIViewController) {
-        print("Router start: \(ownVC)")
+    open func onStart(root:RootViewController, own: UIViewController) {
+        print("Router start: \(self) \(root) \(own)")
     }
     
     func addRoute<R: Route>(_ routeType: R.Type, handler: @escaping (R) -> UIViewController) {
@@ -45,7 +46,7 @@ open class VIPERRouter<C>: RouterProtocol {
         }
     }
        
-    func route(_ route: any Route) -> UIViewController {
+    func handleRoute(_ route: any Route) -> UIViewController {
         let identifier = ObjectIdentifier(type(of: route))
         if let handler = routes[identifier] {
             return handler(route)

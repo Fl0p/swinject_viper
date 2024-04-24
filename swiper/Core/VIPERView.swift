@@ -41,7 +41,7 @@ protocol ViewControllerProtocol: UIViewController {
     var presenter: Presenter { get }
     var myView: View { get }
     var controller: UIViewController { get }
-    func start()
+    func start(root: Presenter.Router.RootViewController)
 }
 
 class ViewController<V: ViewProtocol, P: PresenterProtocol>: UIViewController, ViewControllerProtocol
@@ -79,7 +79,7 @@ where V == P.View, V: ViewProtocol
         self.presenter.viewReady(view: self.myView)
     }
  
-    func start() {
-        self.presenter.router.onStart(ownVC: self)
+    func start(root: Presenter.Router.RootViewController) {
+        self.presenter.router.onStart(root: root, own: self)
     }
 }

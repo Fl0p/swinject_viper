@@ -25,9 +25,9 @@
 		DB5958E72BD1C1970048E4F0 /* VIPER.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958E62BD1C1970048E4F0 /* VIPER.swift */; };
 		DB5958EB2BD1C7830048E4F0 /* VIPERPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EA2BD1C7830048E4F0 /* VIPERPresenter.swift */; };
 		DB5958ED2BD1D0EF0048E4F0 /* VIPERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EC2BD1D0EF0048E4F0 /* VIPERView.swift */; };
-		DB5958EF2BD1D9610048E4F0 /* VIPERInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958EE2BD1D9610048E4F0 /* VIPERInteractor.swift */; };
 		DB5958FA2BD7C8380048E4F0 /* SomeStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5958F92BD7C8380048E4F0 /* SomeStyles.swift */; };
 		DB5958FC2BD7D75D0048E4F0 /* deps in Frameworks */ = {isa = PBXBuildFile; productRef = DB5958FB2BD7D75D0048E4F0 /* deps */; };
+		DB8D56F62BD9790C00374FFE /* VIPERInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D56F52BD9790C00374FFE /* VIPERInteractor.swift */; };
 		DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */; };
 		DBD38F242BAA23A4006BED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD38F232BAA23A4006BED15 /* Assets.xcassets */; };
 		DBD38F322BAA23A4006BED15 /* swiperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD38F312BAA23A4006BED15 /* swiperTests.swift */; };
@@ -77,8 +77,8 @@
 		DB5958E62BD1C1970048E4F0 /* VIPER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPER.swift; sourceTree = "<group>"; };
 		DB5958EA2BD1C7830048E4F0 /* VIPERPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERPresenter.swift; sourceTree = "<group>"; };
 		DB5958EC2BD1D0EF0048E4F0 /* VIPERView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERView.swift; sourceTree = "<group>"; };
-		DB5958EE2BD1D9610048E4F0 /* VIPERInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERInteractor.swift; sourceTree = "<group>"; };
 		DB5958F92BD7C8380048E4F0 /* SomeStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeStyles.swift; sourceTree = "<group>"; };
+		DB8D56F52BD9790C00374FFE /* VIPERInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPERInteractor.swift; sourceTree = "<group>"; };
 		DBD38F172BAA23A0006BED15 /* swiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD38F1A2BAA23A0006BED15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBD38F232BAA23A4006BED15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			children = (
 				DB5958E62BD1C1970048E4F0 /* VIPER.swift */,
 				DB5958EC2BD1D0EF0048E4F0 /* VIPERView.swift */,
-				DB5958EE2BD1D9610048E4F0 /* VIPERInteractor.swift */,
+				DB8D56F52BD9790C00374FFE /* VIPERInteractor.swift */,
 				DB5958EA2BD1C7830048E4F0 /* VIPERPresenter.swift */,
 				DB5958D72BD1A99F0048E4F0 /* VIPERRouter.swift */,
 			);
@@ -482,10 +482,10 @@
 				DB5958E72BD1C1970048E4F0 /* VIPER.swift in Sources */,
 				DB5958FA2BD7C8380048E4F0 /* SomeStyles.swift in Sources */,
 				DBD38F1B2BAA23A0006BED15 /* AppDelegate.swift in Sources */,
-				DB5958EF2BD1D9610048E4F0 /* VIPERInteractor.swift in Sources */,
 				DB2E49C32BD94695007B8E75 /* MainInteractor.swift in Sources */,
 				DB5958E32BD1BF3A0048E4F0 /* LoadingPresenter.swift in Sources */,
 				DB2E49C52BD946C4007B8E75 /* MainRouter.swift in Sources */,
+				DB8D56F62BD9790C00374FFE /* VIPERInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
