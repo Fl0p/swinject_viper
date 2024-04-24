@@ -10,7 +10,7 @@ import RxSwift
 
 protocol PresenterProtocol: AnyObject {
     associatedtype View: ViewProtocol
-    associatedtype Interactor
+    associatedtype Interactor: InteractorProtocol
     associatedtype Router: RouterProtocol
     var view: View? { get }
     var interactor: Interactor { get }
@@ -19,12 +19,12 @@ protocol PresenterProtocol: AnyObject {
 }
 
 class VIPERPresenter<V, I, R>: PresenterProtocol
-where V: ViewProtocol, R:RouterProtocol {
+where V: ViewProtocol, I: InteractorProtocol, R:RouterProtocol {
     typealias View = V
     typealias Interactor = I
     typealias Router = R
     
-    var view: V?
+    weak var view: V?
     let interactor: Interactor
     let router: Router
     let disposeBag = DisposeBag()
@@ -36,8 +36,8 @@ where V: ViewProtocol, R:RouterProtocol {
     
     func viewReady(view: V) {
         self.view = view
-        //self.interactor.presenter = self as? I.Presenter
         self.bind()
+        self.interactor.ready()
     }
     
     open func bind() {

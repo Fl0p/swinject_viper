@@ -18,13 +18,8 @@ final class OneAssembly: Assembly {
                 print("Route type: \(route)")
                 let vc = UIViewController()
                 switch route {
-                case .kek:
+                case .loaded(let int):
                     vc.view.backgroundColor = .red
-                case .lol(let str):
-                    vc.view.backgroundColor = .blue
-                    vc.title = str
-                case .aza(_):
-                    print("nothing here`")
                 }
                 
                 return vc

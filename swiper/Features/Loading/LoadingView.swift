@@ -10,16 +10,18 @@ import UIKit
 import Stevia
 
 protocol LoadingViewProtocol: ViewProtocol {
-    var lolBtn: UIButton { get }
-    var kekBtn: UIButton { get }
-    var bc: UIColor { get }
+    var square: UIView { get }
+    var lbl: UILabel { get }
+    var act: UIActivityIndicatorView { get }
+
 }
 
 final class LoadingView: VIPERView, LoadingViewProtocol {
     
-    let lolBtn: UIButton = UIButton()
-    let kekBtn: UIButton = UIButton()
     let square: UIView = UIView()
+    let lbl: UILabel = UILabel()
+    let act: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    
     
     var bc: UIColor {
         self.backgroundColor ?? .blue
@@ -28,23 +30,23 @@ final class LoadingView: VIPERView, LoadingViewProtocol {
     override func applyStyle() {
         self.styleBgLightGray()
         square.styleBgGray()
-        lolBtn.styleLol()
-        kekBtn.styleKek()
+        lbl.text = "Loading..."
+        lbl.textColor = .black
     }
     
     override func applyLayout() {
         self.subviews {
             square
-            lolBtn
-            kekBtn
+            lbl
+            act
         }
+        act.centerInContainer()
+        
         square.Top == self.safeAreaLayoutGuide.Top + 20
         layout {
             |-square-| ~ 50
             10
-            |-lolBtn-| ~ 50
-            10
-            |-kekBtn-| ~ 50
+            |-lbl-| ~ 50
             >=80
         }
     }

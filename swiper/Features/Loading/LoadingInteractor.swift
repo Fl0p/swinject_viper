@@ -9,27 +9,22 @@ import Foundation
 import RxSwift
 
 protocol LoadingInteractorProtocol: InteractorProtocol {
-    func lol()
-    func kek()
-    
-    var lolEventTrigger: PublishSubject<Void> { get }
-    var kekEventTrigger: PublishSubject<Void> { get }
+    func loaded()
+    var loadedTrigger: PublishSubject<Void> { get }
 }
 
 final class LoadingInteractor: VIPERInteractor, LoadingInteractorProtocol {
     
-    let lolEventTrigger = PublishSubject<Void>()
-    let kekEventTrigger = PublishSubject<Void>()
+    let loadedTrigger = PublishSubject<Void>()
 
-    func lol() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.lolEventTrigger.onNext(())
+    override func ready() {
+        super.ready()
+    }
+    
+    func loaded() {
+        // just some async operation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.loadedTrigger.onNext(())
         }
     }
-    func kek() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.kekEventTrigger.onNext(())
-        }
-    }
-
 }

@@ -9,14 +9,11 @@ import Foundation
 import UIKit
 
 protocol LoadingRouterProtocol: RouterProtocol {
-    func kek()
-    func lol(_ str: String)
+    func loaded(_ num: Int)
 }
 
 enum LoadingRoute: Route {
-    case kek
-    case lol(String)
-    case aza(Int)
+    case loaded(Int)
 }
 
 final class LoadingRouter: VIPERRouter<UINavigationController>, LoadingRouterProtocol {
@@ -26,16 +23,10 @@ final class LoadingRouter: VIPERRouter<UINavigationController>, LoadingRouterPro
         self.root.setViewControllers([ownVC], animated: true)
     }
     
-    func kek() {
-        let route = LoadingRoute.kek
+    func loaded(_ num: Int) {
+        let route = LoadingRoute.loaded(num)
         let vc = self.route(route)
-        self.root.pushViewController(vc, animated: true)
-    }
-    
-    func lol(_ str: String) {
-        let route = LoadingRoute.lol(str)
-        let vc = self.route(route)
-        self.root.pushViewController(vc, animated: true)
+        self.root.setViewControllers([vc], animated: true)
     }
     
 }

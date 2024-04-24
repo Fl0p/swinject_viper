@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainPresenter: VIPERPresenter<MainView, MainInteractorProtocol, MainRouter> {
+class MainPresenter: VIPERPresenter<MainView, MainInteractor, MainRouter> {
     override func bind() {
         let c = self.view?.bc ?? .black
         print("MainPresenter bind \(c)")

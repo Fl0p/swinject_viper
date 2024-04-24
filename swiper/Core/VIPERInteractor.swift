@@ -8,10 +8,11 @@
 import Foundation
 
 protocol InteractorProtocol {
-    
+    func ready()
 }
 
-
 class VIPERInteractor: InteractorProtocol {
-    
+    open func ready() {
+        // override this method in subclass
+    }
 }
