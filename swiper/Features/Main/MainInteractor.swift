@@ -1,14 +1,14 @@
 //
-//  LoadingInteractor.swift
+//  MainInteractor.swift
 //  swiper
 //
-//  Created by Flop on 18.04.2024.
+//  Created by Flop on 24.04.2024.
 //
 
 import Foundation
 import RxSwift
 
-protocol LoadingInteractorProtocol: InteractorProtocol {
+protocol MainInteractorProtocol: InteractorProtocol {
     func lol()
     func kek()
     
@@ -16,7 +16,7 @@ protocol LoadingInteractorProtocol: InteractorProtocol {
     var kekEventTrigger: PublishSubject<Void> { get }
 }
 
-final class LoadingInteractor: VIPERInteractor, LoadingInteractorProtocol {
+final class MainInteractor: VIPERInteractor, MainInteractorProtocol {
     
     let lolEventTrigger = PublishSubject<Void>()
     let kekEventTrigger = PublishSubject<Void>()
