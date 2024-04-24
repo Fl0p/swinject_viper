@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol InteractorProtocol {
+public protocol InteractorProtocol {
     func ready()
 }
 

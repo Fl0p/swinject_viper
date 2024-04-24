@@ -50,6 +50,6 @@ final class MainView: VIPERView, MainViewProtocol {
     }
 }
 
-final class MainViewController: ViewController<MainView, MainPresenter> {
+final class MainViewController: VIPERViewController<MainView, MainPresenter> {
     
 }

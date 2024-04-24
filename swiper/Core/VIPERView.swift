@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol ViewProtocol: UIView {
+public protocol ViewProtocol: UIView {
     func applyStyle()
     func applyLayout()
 }
@@ -35,7 +35,7 @@ public class VIPERView: UIView, ViewProtocol {
 }
 
 
-protocol ViewControllerProtocol: UIViewController {
+public protocol ViewControllerProtocol: UIViewController {
     associatedtype Presenter: PresenterProtocol
     associatedtype View: ViewProtocol
     var presenter: Presenter { get }
@@ -44,7 +44,7 @@ protocol ViewControllerProtocol: UIViewController {
     func start(root: Presenter.Router.RootViewController)
 }
 
-class ViewController<V: ViewProtocol, P: PresenterProtocol>: UIViewController, ViewControllerProtocol
+class VIPERViewController<V: ViewProtocol, P: PresenterProtocol>: UIViewController, ViewControllerProtocol
 where V == P.View, V: ViewProtocol
 {
 

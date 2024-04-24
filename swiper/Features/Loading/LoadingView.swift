@@ -40,6 +40,6 @@ final class LoadingView: VIPERView, LoadingViewProtocol {
     }
 }
 
-final class LoadingViewController: ViewController<LoadingView, LoadingPresenter> {
+final class LoadingViewController: VIPERViewController<LoadingView, LoadingPresenter> {
     
 }

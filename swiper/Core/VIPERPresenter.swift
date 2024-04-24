@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol PresenterProtocol: AnyObject {
+public protocol PresenterProtocol: AnyObject {
     associatedtype View: ViewProtocol
     associatedtype Interactor: InteractorProtocol
     associatedtype Router: RouterProtocol

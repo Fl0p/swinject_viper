@@ -33,6 +33,8 @@ open class VIPERRouter<C>: RouterProtocol where C: UIViewController {
     }
 
     open func onStart(root:RootViewController, own: UIViewController) {
+        self.root = root
+        self.own = own
         print("Router start: \(self) \(root) \(own)")
     }
     
