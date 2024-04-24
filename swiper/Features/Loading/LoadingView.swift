@@ -15,7 +15,7 @@ protocol LoadingViewProtocol: ViewProtocol {
     var bc: UIColor { get }
 }
 
-final class LoadingView: ViewBase, LoadingViewProtocol {
+final class LoadingView: VIPERView, LoadingViewProtocol {
     
     let lolBtn: UIButton = UIButton()
     let kekBtn: UIButton = UIButton()

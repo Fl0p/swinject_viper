@@ -19,7 +19,7 @@ enum LoadingRoute: Route {
     case aza(Int)
 }
 
-final class LoadingRouter: RouterBase<UINavigationController>, LoadingRouterProtocol {
+final class LoadingRouter: VIPERRouter<UINavigationController>, LoadingRouterProtocol {
     
     override func onStart(ownVC: UIViewController) {
         super.onStart(ownVC: ownVC)

@@ -16,7 +16,7 @@ protocol LoadingInteractorProtocol: InteractorProtocol {
     var kekEventTrigger: PublishSubject<Void> { get }
 }
 
-final class LoadingInteractor: InteractorBase, LoadingInteractorProtocol {
+final class LoadingInteractor: VIPERInteractor, LoadingInteractorProtocol {
     
     let lolEventTrigger = PublishSubject<Void>()
     let kekEventTrigger = PublishSubject<Void>()

@@ -12,6 +12,6 @@ protocol InteractorProtocol {
 }
 
 
-class InteractorBase: InteractorProtocol {
+class VIPERInteractor: InteractorProtocol {
     
 }

@@ -21,7 +21,7 @@ public protocol RouterProtocol {
     func onStart(ownVC: UIViewController)
 }
 
-open class RouterBase<C>: RouterProtocol {
+open class VIPERRouter<C>: RouterProtocol {
     public typealias RootViewController = C
     public let root: RootViewController
     

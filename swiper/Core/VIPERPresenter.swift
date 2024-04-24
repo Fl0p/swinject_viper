@@ -18,7 +18,7 @@ protocol PresenterProtocol: AnyObject {
     func viewReady(view: View)
 }
 
-class PresenterBase<V, I, R>: PresenterProtocol
+class VIPERPresenter<V, I, R>: PresenterProtocol
 where V: ViewProtocol, R:RouterProtocol {
     typealias View = V
     typealias Interactor = I

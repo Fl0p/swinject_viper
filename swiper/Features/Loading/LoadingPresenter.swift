@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoadingPresenter: PresenterBase<LoadingView, LoadingInteractorProtocol, LoadingRouter> {
+class LoadingPresenter: VIPERPresenter<LoadingView, LoadingInteractorProtocol, LoadingRouter> {
     override func bind() {
         let c = self.view?.bc ?? .black
         print("LoadingPresenter bind \(c)")

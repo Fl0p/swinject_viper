@@ -13,7 +13,7 @@ protocol ViewProtocol: UIView {
     func applyLayout()
 }
 
-public class ViewBase: UIView, ViewProtocol {
+public class VIPERView: UIView, ViewProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
