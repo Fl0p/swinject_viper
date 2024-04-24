@@ -21,21 +21,21 @@ enum MainRoute: Route {
 
 final class MainRouter: VIPERRouter<UINavigationController>, MainRouterProtocol {
     
-    override func onStart(root:RootViewController, own: UIViewController) {
+    override func onStart(root:RVC, own: (any ViewControllerProtocol)) {
         super.onStart(root: root, own: own)
-        root.setViewControllers([own], animated: true)
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.fade
+        self.root?.view.layer.add(transition, forKey: kCATransition)
+        self.root?.setViewControllers([own], animated: false)
     }
     
     func kek() {
-        let route = MainRoute.kek
-        let vc = self.handleRoute(route)
-        self.root?.pushViewController(vc, animated: true)
+        self.handleRoute(MainRoute.kek)
     }
     
     func lol(_ str: String) {
-        let route = MainRoute.lol(str)
-        let vc = self.handleRoute(route)
-        self.root?.pushViewController(vc, animated: true)
+        self.handleRoute(MainRoute.lol(str))
     }
     
 }

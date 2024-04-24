@@ -14,13 +14,13 @@ final class OneAssembly: Assembly {
         
         container.register(LoadingRouter.self) { r in
             let router = LoadingRouter()
-            router.addRoute(LoadingRoute.self) { route in
-                let vc = r.resolve(MainViewController.self)!
+            router.addRoute(LoadingRoute.self) { router, route in
+                let main = r.resolve(MainViewController.self)!
                 switch route {
                 case .loaded(let int):
-                    vc.presenter.interactor.acceptInitialData(int)
+                    main.presenter.interactor.acceptInitialData(int)
+                    main.start(root: router.root!)
                 }
-                return vc
             }
             return router
         }
@@ -34,8 +34,8 @@ final class OneAssembly: Assembly {
         
         container.register(MainRouter.self) { r in
             let router = MainRouter()
-            router.addRoute(MainRoute.self) { route in
-                print("Route type: \(route)")
+            router.addRoute(MainRoute.self) { router, route in
+                print("Router : \(router) route: \(route)")
                 let vc = UIViewController()
                 switch route {
                 case .kek:
@@ -46,8 +46,6 @@ final class OneAssembly: Assembly {
                 case .aza(_):
                     print("nothing here`")
                 }
-                
-                return vc
             }
             return router
         }
