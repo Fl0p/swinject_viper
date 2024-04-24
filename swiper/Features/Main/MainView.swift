@@ -51,5 +51,8 @@ final class MainView: VIPERView, MainViewProtocol {
 }
 
 final class MainViewController: VIPERViewController<MainView, MainPresenter> {
-    
+    func start(root: UINavigationController, data: Int) {
+        self.presenter.interactor.acceptInitialData(data)
+        super.start(root: root)
+    }
 }

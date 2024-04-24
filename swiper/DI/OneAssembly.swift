@@ -18,8 +18,7 @@ final class OneAssembly: Assembly {
                 let main = r.resolve(MainViewController.self)!
                 switch route {
                 case .loaded(let int):
-                    main.presenter.interactor.acceptInitialData(int)
-                    main.start(root: router.root!)
+                    main.start(root: router.root!, data: int)
                 }
             }
             return router
