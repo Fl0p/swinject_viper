@@ -36,7 +36,7 @@ public class ViewBase: UIView, ViewProtocol {
 
 
 protocol ViewControllerProtocol: UIViewController {
-    associatedtype Presenter: AnyPresenterProtocol
+    associatedtype Presenter: PresenterProtocol
     associatedtype View: ViewProtocol
     var presenter: Presenter { get }
     var myView: View { get }
@@ -44,7 +44,7 @@ protocol ViewControllerProtocol: UIViewController {
     func start()
 }
 
-class ViewController<V: ViewProtocol, P: AnyPresenterProtocol>: UIViewController, ViewControllerProtocol
+class ViewController<V: ViewProtocol, P: PresenterProtocol>: UIViewController, ViewControllerProtocol
 where V == P.View, V: ViewProtocol
 {
 
@@ -64,7 +64,6 @@ where V == P.View, V: ViewProtocol
     init(presenter: Presenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-
     }
     
     required init?(coder: NSCoder) {

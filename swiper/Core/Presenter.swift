@@ -8,24 +8,15 @@
 import Foundation
 import RxSwift
 
-protocol AnyPresenterProtocol: AnyObject {
+protocol PresenterProtocol: AnyObject {
     associatedtype View: ViewProtocol
+    associatedtype Interactor
     associatedtype Router: RouterProtocol
-    var view: View? { set get }
+    var view: View? { get }
+    var interactor: Interactor { get }
     var router: Router { get }
     func viewReady(view: View)
 }
-
-protocol PresenterProtocol: AnyPresenterProtocol {
-    
-    associatedtype Interactor
-    
-
-    var interactor: Interactor { get }
-    
-
-}
-
 
 class PresenterBase<V, I, R>: PresenterProtocol
 where V: ViewProtocol, R:RouterProtocol {
