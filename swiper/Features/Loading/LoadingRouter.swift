@@ -16,9 +16,9 @@ enum LoadingRoute: Route {
     case loaded(Int)
 }
 
-final class LoadingRouter: VIPERRouter<UINavigationController>, LoadingRouterProtocol {
+final class LoadingRouter: VIPERRouter<LoadingRoute, UINavigationController>, LoadingRouterProtocol {
     
-    override func onStart(root: RVC, own: (any ViewControllerProtocol)) {
+    override func onStart(root: RootType, own: (any ViewControllerProtocol)) {
         super.onStart(root: root, own: own)
         root.setViewControllers([own], animated: true)
     }

@@ -1,62 +1,65 @@
-//
-//  Router.swift
-//  swiper
-//
-//  Created by Flop on 18.04.2024.
-//
-
 import Foundation
 import UIKit
 
-public protocol Route: Hashable {
-    
-}
-
+public protocol Route {}
 
 public protocol RouterProtocol {
-    associatedtype RVC: UIViewController
-    var root: RVC? { get }
+    associatedtype RootType: UIViewController
+    var root: RootType? { get }
     var own: (any ViewControllerProtocol)? { get }
     init()
-    func onStart(root: RVC, own: (any ViewControllerProtocol))
+    func onStart(root: RootType, own: (any ViewControllerProtocol))
 }
 
-open class VIPERRouter<C>: RouterProtocol where C: UIViewController {
+open class VIPERRouter<R: Route, C: UIViewController>: RouterProtocol {
     
-    public typealias RVC = C
-    public weak var root: RVC?
+    internal struct RouteKey: Hashable, Equatable {
+        internal let identifier: ObjectIdentifier
+        
+        init(_ routeType: Any.Type) {
+            self.identifier = ObjectIdentifier(routeType)
+        }
+        
+        public func hash(into hasher: inout Hasher) {
+            identifier.hash(into: &hasher)
+        }
+        
+        static func == (lhs: RouteKey, rhs: RouteKey) -> Bool {
+            return lhs.identifier == rhs.identifier
+        }
+    }
+    
+    public typealias SelfType = VIPERRouter<R, C>
+    public typealias RouteType = R
+    public typealias RootType = C
+    
+    public weak var root: RootType?
     public weak var own: (any ViewControllerProtocol)?
     
-    typealias Handler = (VIPERRouter<C>, any Route) -> Void
+    typealias Handler = (SelfType, RouteType) -> Void
     
-    var routes:[ObjectIdentifier: Handler] = [:]
+    var routes:[RouteKey: Handler] = [:]
     
-    required public init() {
-        
-    }
+    required public init() {}
 
-    open func onStart(root:RVC, own: (any ViewControllerProtocol)) {
+    open func onStart(root: RootType, own: (any ViewControllerProtocol)) {
         self.root = root
         self.own = own
-        print("Router start: \(self) \(root) \(own)")
     }
     
-    func addRoute<R: Route>(
-        _ r: R.Type,
-        handler: @escaping (VIPERRouter<C>, R) -> Void
+    func addRoute<RouteType> (
+        _ route: RouteType.Type,
+        handler: @escaping (SelfType, RouteType) -> Void
     ) {
-        routes[ObjectIdentifier(r)] = { router, route in
-            if let specificRoute = route as? R {
-                handler(router, specificRoute)
-            } else {
-                fatalError("Unexpected route: \(route)")
-            }
+        let key = RouteKey(RouteType.self)
+        routes[key] = { router, route in
+            handler(router, route as! RouteType)
         }
     }
        
-    func handleRoute(_ route: any Route) -> Void {
-        let identifier = ObjectIdentifier(type(of: route))
-        guard let handler = routes[identifier] else {
+    func handleRoute(_ route: RouteType) -> Void {
+        let key = RouteKey(type(of: route))
+        guard let handler = routes[key] else {
             fatalError("Unsupported route: \(route)")
         }
         handler(self, route)

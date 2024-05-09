@@ -15,6 +15,7 @@ final class OneAssembly: Assembly {
         container.register(LoadingRouter.self) { r in
             let router = LoadingRouter()
             router.addRoute(LoadingRoute.self) { router, route in
+                let rrr = router;
                 let main = r.resolve(MainViewController.self)!
                 switch route {
                 case .loaded(let int):
@@ -42,7 +43,7 @@ final class OneAssembly: Assembly {
                 case .lol(let str):
                     vc.view.backgroundColor = .blue
                     vc.title = str
-                case .aza(_):
+                case .aza(_, _):
                     print("nothing here`")
                 }
             }

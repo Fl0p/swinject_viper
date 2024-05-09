@@ -16,12 +16,12 @@ protocol MainRouterProtocol: RouterProtocol {
 enum MainRoute: Route {
     case kek
     case lol(String)
-    case aza(Int)
+    case aza(Int, UINavigationControllerDelegate)
 }
 
-final class MainRouter: VIPERRouter<UINavigationController>, MainRouterProtocol {
+final class MainRouter: VIPERRouter<MainRoute, UINavigationController>, MainRouterProtocol {
     
-    override func onStart(root:RVC, own: (any ViewControllerProtocol)) {
+    override func onStart(root: RootType, own: (any ViewControllerProtocol)) {
         super.onStart(root: root, own: own)
         let transition = CATransition()
         transition.duration = 0.3
